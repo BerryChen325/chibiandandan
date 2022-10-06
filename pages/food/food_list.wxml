@@ -1,0 +1,34 @@
+<!--pages/canteen/food/food_list.wxml-->
+<view class="fenlei">
+
+<!-- <view>
+  <block wx:for="{{foods}}" wx:key="key" for-item="item">
+    <view> food name: {{item.fname}}</view>
+  </block>
+</view> -->
+
+<view class="left" style="height:{{winHeight}}px">
+  <block wx:for="{{tasteNav}}" wx:key="id">
+    <text class="type-nav {{curNav == item.id ? 'selected' : ''}}" bindtap="selectNav" data-id="{{item.id}}">{{item.label}}</text>
+  </block>
+
+</view>
+<view class="right">
+<block wx:for="{{showFoods}}"  wx:key="*this">
+  <navigator url='/pages/xiangxi/xiangxi?cpid={{item.cp_id}}' class='food'>
+    <view class='f_img'>
+      <image src='{{item.cp_tupian}}' class="food_img" mode="widthFix"></image>
+    </view>
+    <view class='food_text'>
+      <text class='food_name'>{{item.fname}}</text>
+      <text class="food_discription">{{item.fdescribe}}</text>
+      <view>
+        <text class='price'>¥ {{item.fprice}}</text>
+      </view>
+      <view class='order_btn'>- 数量 +(hh)</view>
+    </view>
+  </navigator>
+</block>
+</view>
+
+</view>
